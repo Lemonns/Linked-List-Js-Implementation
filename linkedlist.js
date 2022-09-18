@@ -9,13 +9,15 @@ class LinkedList {
     constructor() {
         this.head = null
     }
-
+    
+    //adds value to front of list
     prepend(value) {
         let newHead = new Node(value)
         newHead.nextNode = this.head
         this.head = newHead
     }
-
+    
+    //adds value to end of list
     append(value) {
         let newNode = new Node(value)
         
@@ -28,7 +30,8 @@ class LinkedList {
             pointer.nextNode = newNode
         }
     }
-
+    
+    //returns total size of list
     get_size() {
         let tot = 0
         let pointer = this.head
@@ -49,7 +52,7 @@ class LinkedList {
         return this.head.value
     }
 
-    //returns value of the last node
+    //returns last node
     get_tail() {
         let pointer = this.head
 
@@ -63,6 +66,7 @@ class LinkedList {
 
     }
     
+    //locates node at specified index
     at(index) {
         let pointer = this.head
 
@@ -75,12 +79,14 @@ class LinkedList {
 
         return pointer
     }
-
+    
+    //removes node from end of list
     pop() {
         let pointer = this.at(this.get_size()-2)
         pointer.nextNode = null
     }
-
+    
+    //checks if a specified value exists in the list
     contains(value) {
         const range = this.get_size()
         for (let i = 0; i < range; i++) {
@@ -88,7 +94,8 @@ class LinkedList {
         }
         return false
     }
-
+    
+    //returns index of specified value
     find(value) {
         let index = 0
         const range = this.get_size()
@@ -98,7 +105,8 @@ class LinkedList {
         }
         return null
     }
-
+    
+    //converts list into formatted string
     toString() {
         let pointer = this.head
         let string = ""
